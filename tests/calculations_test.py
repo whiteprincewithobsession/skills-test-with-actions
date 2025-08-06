@@ -58,13 +58,48 @@ def test_get_nth_fibonacci_one():
     assert result == 1
 
 
-# def test_get_nth_fibonacci_ten():
-#     """Test with n=10."""
-#     # Arrange
-#     n = 10
+def test_get_nth_fibonacci_ten():
+   """Test with n=10."""
+   # Arrange
+   n = 10
 
-#     # Act
-#     result = get_nth_fibonacci(n)
+   # Act
+   result = get_nth_fibonacci(n)
 
-#     # Assert
-#     assert result == 89
+   # Assert
+   assert result == 55
+
+def test_area_of_circle_negative_radius(self):
+   """Test with a negative radius to raise ValueError."""
+   # Arrange
+   radius = -1
+
+   # Act & Assert
+   with self.assertRaises(ValueError):
+      area_of_circle(radius)
+
+def test_get_nth_fibonacci_negative(self):
+   """Test with a negative number to raise ValueError."""
+   # Arrange
+   n = -1
+
+   # Act & Assert
+   with self.assertRaises(ValueError):
+      get_nth_fibonacci(n)
+
+
+def test_area_of_circle_negative_radius():
+    try:
+        area_of_circle(-1)
+    except ValueError:
+        pass  # Ожидаемое поведение
+    else:
+        raise AssertionError("ValueError не был вызван для отрицательного радиуса")
+
+def test_get_nth_fibonacci_negative():
+    try:
+        get_nth_fibonacci(-5)
+    except ValueError:
+        pass  # Ожидаемое поведение
+    else:
+        raise AssertionError("ValueError не был вызван для отрицательного n")
